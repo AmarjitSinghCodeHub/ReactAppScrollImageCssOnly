@@ -1,13 +1,82 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --BG-COLOR:#f6f9ee;
+  --FC-COLOR:#222;
+  --FONT-FAMILIY: "Poppins", sans-serif;
+  --FONT-SIZE:10pt;
+  --NO-OF-IMG:8;
+  --DURATION-TIME:8s;
+  --IMG-WD:300px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--BG-COLOR);
+  color:var(--FC-COLOR);
+  font-size:var(--FONT-SIZE);
+  font-family: var(--FONT-FAMILIY);
+}
+
+.slider-content{
+  width: 100%;
+  height:405px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap:10pt;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.slider-content::-webkit-scrollbar{
+  display: none;
+}
+
+
+.slider-content img{
+  flex-shrink: 1;
+  flex-grow: 1;
+  width: 300px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+object-position: 10% 20%;
+position: absolute;
+left: 100%;
+animation: aniImg 6s linear infinite;
+}
+.slider-content img:nth-child(1){
+animation-delay:calc((6s/4) * 0);
+}
+.slider-content img:nth-child(2){
+  animation-delay:calc((6s/4) * 1);
+  }
+
+  .slider-content img:nth-child(3){
+    animation-delay:calc((6s/4) * 2);
+    }
+
+    .slider-content img:nth-child(4){
+      animation-delay:calc((6s/4) * 3);
+      }
+
+    
+
+@keyframes aniImg {
+  from{
+    left: 100%;
+  }
+  to{
+    left: calc((var(--IMG-WD) * -1));
+  }
+  
 }
